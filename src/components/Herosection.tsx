@@ -12,7 +12,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   setSearchTerm,
 }) => {
   const navigate = useNavigate();
-
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!searchTerm) return;

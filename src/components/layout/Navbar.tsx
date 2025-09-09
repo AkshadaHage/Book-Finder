@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Menu, Search, User, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -17,13 +17,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll to "Categories" section
-  const handleScrollToCategories = () => {
-    const section = document.getElementById("categories");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+ 
 
   // Helper to check active route
   const isActive = (path: string) => location.pathname === path;
@@ -64,7 +58,8 @@ const Navbar = () => {
             </button>
             <span className="opacity-60">·</span>
             <button
-              className="hover:text-yellow-300 transition text-white"
+              className={`transition ${isActive("/categories") ? "text-yellow-300 font-medium" : "text-white"
+                }`}
               onClick={() => navigate("/categories")}
             >
               Categories
@@ -134,11 +129,11 @@ const Navbar = () => {
             Search
           </button>
           <button
-            className="block w-full text-left hover:text-yellow-300 transition"
-            onClick={() => {
-              handleScrollToCategories();
-              setIsOpen(false);
-            }}
+            className={`block w-full text-left hover:text-yellow-300 transition ${isActive("/categories")
+                ? "text-yellow-300 font-medium"
+                : "hover:text-yellow-300"
+              }`}
+            onClick={() => navigate("/categories")}
           >
             Categories
           </button>

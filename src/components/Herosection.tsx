@@ -89,7 +89,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <p className="text-sm text-gray-700">
                   “So many books, so little time.”
                 </p>
-                <button className="mt-3 text-sm font-medium text-yellow-700 hover:text-yellow-800">
+                <button className="mt-3 text-sm font-medium text-yellow-700 hover:text-yellow-800"
+                onClick={() => navigate('/search')}
+                >
                   Start Reading →
                 </button>
               </div>

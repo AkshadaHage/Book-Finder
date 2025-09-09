@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResult';
 import CategoriesScreen from './pages/CategoriesScreen';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <Router>
+    <BrowserRouter>
       <Layout>
         <Routes>
           <Route path="/" element={<Home searchTerm={searchTerm} setSearchTerm={setSearchTerm} />} />
@@ -17,7 +17,7 @@ function App() {
           {/* <Route path="/about" element={<AboutPage />} /> */}
         </Routes> 
       </Layout>
-    </Router>
+    </BrowserRouter>
   );
 }
 

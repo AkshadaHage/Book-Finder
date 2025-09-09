@@ -23,9 +23,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     <>
       {/* 🌟 Hero Section */}
       <section className="relative min-h-screen flex items-center bg-gradient-to-r from-[#121a16] via-[#2d3b34] to-[#a6b8a8]">
-        <div className=" mx-auto w-full  grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6 text-white left-8 pl-5 lg:pl-20">
+          <div className="space-y-6 text-white pl-5 lg:pl-20">
             <span className="uppercase tracking-wider text-sm text-yellow-300">
               Read Book Collection
             </span>
@@ -73,34 +73,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               className="relative w-[420px] lg:w-[720px] drop-shadow-2xl top-[70px]"
             />
 
-            {/* 📚 Block Below Books */}
-            <div className="absolute bottom-[-180px] lg:bottom-[-160px] right-0 bg-[#9bb5a1] rounded-tl-[80px] px-6 py-5 shadow-xl w-[500px] md:w-[700px] lg:w-[1020px] flex items-start gap-4">
-              {/* Icon */}
-              <div></div>
-              <div className="bg-yellow-400 p-3 rounded-xl flex-shrink-0 ">
-                <BookOpen className="w-6 h-6 text-gray-900" />
-              </div>
-
-              {/* Text */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">
-                  Featured Book
-                </h3>
-                <p className="text-sm text-gray-700">
-                  “So many books, so little time.”
-                </p>
-                <button className="mt-3 text-sm font-medium text-yellow-700 hover:text-yellow-800"
-                onClick={() => navigate('/search')}
-                >
-                  Start Reading →
-                </button>
-              </div>
-            </div>
           </div>
         </div>
-
-        {/* Bottom Branding */}
-
+        {/* 📚 Block Below Books */}
+        <div className="absolute bottom-0 right-0 translate-y-1/4 bg-[#9bb5a1] rounded-tl-[80px] pl-[90px] px-6 py-5 shadow-xl w-[500px] h-[150px] md:w-[700px] lg:w-[1020px] flex items-start gap-4">
+          <div className="bg-yellow-400 p-3 rounded-xl flex-shrink-0">
+            <BookOpen className="w-6 h-6 text-gray-900" />
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">Featured Book</h3>
+            <p className="text-sm text-gray-700">“So many books, so little time.”</p>
+            <button
+              className="mt-3 text-sm font-medium text-yellow-700 hover:text-yellow-800"
+              onClick={() => navigate("/search")}
+            >
+              Start Reading →
+            </button>
+          </div>
+        </div>
       </section>
     </>
   );

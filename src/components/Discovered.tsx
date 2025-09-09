@@ -32,43 +32,43 @@ const DiscoverSection: React.FC = () => {
           </h2>
 
           {/* Category Filters */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-  {books.map((book, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      whileHover={{ scale: 1.05 }}
-      className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
-      onClick={() => {
-        if (book.editionKey) {
-          window.open(
-            `https://openlibrary.org/books/${book.editionKey}`,
-            "_blank"
-          );
-        } else if (book.key) {
-          window.open(
-            `https://openlibrary.org${book.key}`,
-            "_blank"
-          );
-        } else {
-          alert("Book not available to read.");
-        }
-      }}
-    >
-      <img
-        src={book.image || book.cover}
-        alt={book.title}
-        className="w-full h-64 object-cover"
-      />
-      <div className="p-4 text-gray-900">
-        <h3 className="font-semibold text-lg">{book.title}</h3>
-        <p className="text-sm text-gray-600">{book.author}</p>
-      </div>
-    </motion.div>
-  ))}
-</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-5 lg:mt-10">
+            {books.map((book, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                onClick={() => {
+                  if (book.editionKey) {
+                    window.open(
+                      `https://openlibrary.org/books/${book.editionKey}`,
+                      "_blank"
+                    );
+                  } else if (book.key) {
+                    window.open(
+                      `https://openlibrary.org${book.key}`,
+                      "_blank"
+                    );
+                  } else {
+                    alert("Book not available to read.");
+                  }
+                }}
+              >
+                <img
+                  src={book.image || book.cover}
+                  alt={book.title}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="p-4 text-gray-900">
+                  <h3 className="font-semibold text-lg">{book.title}</h3>
+                  <p className="text-sm text-gray-600">{book.author}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
         </div>
 

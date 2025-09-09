@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResult';
-import CategoriesSection from './components/Categories';
 import CategoriesScreen from './pages/CategoriesScreen';
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Add logic for searching
-  };
 
   return (
     <Router>

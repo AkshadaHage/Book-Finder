@@ -1,6 +1,7 @@
 import React from "react";
 import { Search, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import BookImage from "../assets/Book.png";
 
 interface HeroSectionProps {
   searchTerm: string;
@@ -67,15 +68,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Book Image */}
             <img
-              src="src/assets/Book.png"
+              src={BookImage}  // use the imported image
               alt="Books Illustration"
               className="relative w-[420px] lg:w-[720px] drop-shadow-2xl top-[70px]"
             />
 
+
           </div>
         </div>
         {/* 📚 Block Below Books */}
-        <div className="absolute bottom-0 right-0 translate-y-1/4 bg-[#9bb5a1] rounded-tl-[80px] pl-[90px] px-6 py-5 shadow-xl w-[500px] h-[150px] md:w-[700px] lg:w-[1020px] flex items-start gap-4">
+        <div className="absolute bottom-0 right-0 translate-y-1/4 bg-[#9bb5a1] rounded-tl-[80px] pl-[150px] md:pl-[90px] px-6 py-5 shadow-xl w-[500px] h-[150px] md:w-[700px] lg:w-[1020px] flex items-start gap-4">
           <div className="bg-yellow-400 p-3 rounded-xl flex-shrink-0">
             <BookOpen className="w-6 h-6 text-gray-900" />
           </div>

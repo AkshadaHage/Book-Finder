@@ -13,6 +13,17 @@ const SearchResults: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(false);
+// inside SearchResults component
+
+ const handleBookClick = (book: Book) => {
+    if (book.editionKey) {
+      window.open(`https://openlibrary.org/books/${book.editionKey}`, "_blank");
+    } else if (book.key) {
+      window.open(`https://openlibrary.org${book.key}`, "_blank");
+    } else {
+      alert("No preview available for this book.");
+    }
+  };
 
   useEffect(() => {
     if (!searchTerm) return;
@@ -70,8 +81,8 @@ const SearchResults: React.FC = () => {
         ) : books.length === 0 ? (
           <p className="text-center mt-20 text-gray-200">No books found.</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {books.map((book, index) => (
+         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+  {books.map((book, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
@@ -79,7 +90,7 @@ const SearchResults: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <BookCard book={book} />
+                <BookCard key={book.title} book={book} onClick={handleBookClick} />
               </motion.div>
             ))}
           </div>

@@ -50,19 +50,22 @@ const CategoriesSection: React.FC = () => {
           </button>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Categories */}
+        <div className="flex gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible">
           {POPULAR_CATEGORIES.map((category, index) => (
             <motion.button
               key={category.id}
               type="button"
-              onClick={() => navigate(`/category/${category.id}`)}
+              // 👉 Pass state instead of id in URL
+              onClick={() =>
+                navigate("/categories", { state: { category: category.name } })
+              }
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15, duration: 0.5 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-[#9bb5a1] rounded-2xl px-6 py-6 shadow-xl flex items-center gap-5 transition-all duration-300 hover:shadow-2xl"
+              className="bg-[#9bb5a1] rounded-2xl px-6 py-6 shadow-xl flex items-center gap-5 transition-all duration-300 hover:shadow-2xl min-w-[250px] md:min-w-0"
             >
               {/* Icon */}
               <div className="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-300 text-gray-900 shadow-md">
@@ -83,7 +86,7 @@ const CategoriesSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Decorative block (matches hero style) */}
+      {/* Decorative block */}
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#9bb5a1] rounded-tr-[100px] opacity-20"></div>
     </section>
   );
